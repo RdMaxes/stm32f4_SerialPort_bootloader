@@ -39,11 +39,11 @@ u16 STMFLASH_ReadHalfWord(u32 faddr)
 	} 	 
 	void STMFLASH_Write(u32 WriteAddr,u16 *pBuffer,u16 NumToWrite)	
 	{
-		u16 stm_sector_size = 16*1024; //16*1024 = 16kbyte		
+		u32 stm_sector_size = 16*1024; //16*1024 = 16kbyte		
 		u32 secpos;    //sector number (0~11) for stm32f40x_41x
-		u16 secoff;    //offset in sector (16bit)
-		u16 secremain; //remaining size in sector (16bit)	   
-	 	u16 i;    
+		u32 secoff;    //offset in sector (16bit)
+		u32 secremain; //remaining size in sector (16bit)	   
+	 	u32 i;    
 		u32 offaddr;   //memory address offset, start from FLSH_BASE address
 		if(WriteAddr<STM32_FLASH_BASE||(WriteAddr>=(STM32_FLASH_BASE+1024*STM32_FLASH_SIZE)))return;
 		FLASH_Unlock();					//unlock flash
