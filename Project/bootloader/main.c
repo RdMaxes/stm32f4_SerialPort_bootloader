@@ -2,6 +2,7 @@
 #include "led.h"
 #include "usart2.h"
 #include "myprintf.h"
+#include "stmflash.h"
 
 int32_t test_var = 343422;
 

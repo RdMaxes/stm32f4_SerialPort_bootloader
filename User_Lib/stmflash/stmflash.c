@@ -66,23 +66,24 @@ u16 STMFLASH_ReadHalfWord(u32 faddr)
 		}		
 		secoff=(offaddr%stm_sector_size)/2;		//calculate address offset in sector
 		secremain=stm_sector_size/2-secoff;		//calculate remain memory size in sector  
-	void STMFLASH_Read(u32 ReadAddr,u16 *pBuffer,u16 NumToRead) 	if(NumToWrite<=secremain)secremain=NumToWrite;//it can be written all in this time
+		if(NumToWrite<=secremain)secremain=NumToWrite;//it can be written all in this time
 		while(1) 
 		{	
 			//Read out whole sector data				
-			STMFLASH_Read(GetSecAddr(secpos)+STM32_FLASH_BASE,STMFLASH_BUF,stm_sector_size/2);
+			STMFLASH_Read(GetSecAddr(secpos),STMFLASH_BUF,stm_sector_size/2);
 			for(i=0;i<secremain;i++)//check if need to be earased or not
 			{
 				if(STMFLASH_BUF[secoff+i]!=0XFFFF)break;//earase needed 	  
 			}
 			if(i<secremain)//if earase is needed
 			{
-				FLASH_ErasePage(GetSecAddr(secpos)+STM32_FLASH_BASE);//earase this sector
+				FLASH_ErasePage(GetSecAddr(secpos));//earase this sector
 				for(i=0;i<secremain;i++)//copy data to buffer
 				{
 					STMFLASH_BUF[i+secoff]=pBuffer[i];	  
 				}
-				STMFLASH_Write_NoCheck(GetSecAddr(secpos)+STM32_FLASH_BASE,STMFLASH_BUF,stm_sector_size/2);//write into address
+				//Write into Flash
+				STMFLASH_Write_NoCheck(GetSecAddr(secpos),STMFLASH_BUF,stm_sector_size/2);
 			}else STMFLASH_Write_NoCheck(WriteAddr,pBuffer,secremain);//need no earase 				   
 			if(NumToWrite==secremain)break;//finish writing
 			else//not yet finish
@@ -92,7 +93,9 @@ u16 STMFLASH_ReadHalfWord(u32 faddr)
 			   	pBuffer+=secremain;  	//data pointer shift
 				WriteAddr+=secremain;	//write address shift	   
 			   	NumToWrite-=secremain;	//decrease data number to write
-				if(NumToWrite>(STM_SECTOR_SIZE/2))secremain=stm_sector_size/2;//writing cannot be finished next time
+				stm_sector_size = GetSecSize(secpos)*1024; //Get sector size
+				//writing cannot be finished next time
+				if(NumToWrite>(stm_sector_size/2))secremain=stm_sector_size/2;
 				else secremain=NumToWrite;//next time the writing is finished
 			}	 
 		};	
@@ -111,7 +114,7 @@ void STMFLASH_Read(u32 ReadAddr,u16 *pBuffer,u16 NumToRead)
 	{
 		pBuffer[i]=STMFLASH_ReadHalfWord(ReadAddr);//read out the data
 		ReadAddr+=2;//address shift 2 Bytes
-	}u32 GetSecAddr(u32 SectorPos)
+	}
 }
 
 
