@@ -9,6 +9,13 @@
 //
 */ 
 
+//Function Prototype
+static u16 STMFLASH_ReadHalfWord(u32 faddr);
+static void STMFLASH_Write_NoCheck(u32 WriteAddr,u16 *pBuffer,u16 NumToWrite);
+static void STMFLASH_Read(u32 ReadAddr,u16 *pBuffer,u16 NumToRead);
+static u32 GetSecAddr(u32 SectorPos);
+static u32 GetSecSize(u32 SectorPos);
+
 //Read half-word from assigned address
 //faddr: address to read
 //return: data read out
@@ -59,7 +66,7 @@ u16 STMFLASH_ReadHalfWord(u32 faddr)
 		}		
 		secoff=(offaddr%stm_sector_size)/2;		//calculate address offset in sector
 		secremain=stm_sector_size/2-secoff;		//calculate remain memory size in sector  
-		if(NumToWrite<=secremain)secremain=NumToWrite;//it can be written all in this time
+	void STMFLASH_Read(u32 ReadAddr,u16 *pBuffer,u16 NumToRead) 	if(NumToWrite<=secremain)secremain=NumToWrite;//it can be written all in this time
 		while(1) 
 		{	
 			//Read out whole sector data				
@@ -104,7 +111,7 @@ void STMFLASH_Read(u32 ReadAddr,u16 *pBuffer,u16 NumToRead)
 	{
 		pBuffer[i]=STMFLASH_ReadHalfWord(ReadAddr);//read out the data
 		ReadAddr+=2;//address shift 2 Bytes
-	}
+	}u32 GetSecAddr(u32 SectorPos)
 }
 
 
@@ -135,7 +142,7 @@ u32 GetSecAddr(u32 SectorPos)
 //SectorPos: number of sector (0~11 for stm32f40x_41x)
 //return: sector size (KB)
 //note: see PM0081, table 1
-u32 GetSecAddr(u32 SectorPos)
+u32 GetSecSize(u32 SectorPos)
 {
 	switch(SectorPos)
 	{
