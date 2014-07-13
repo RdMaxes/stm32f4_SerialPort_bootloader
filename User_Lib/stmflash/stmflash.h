@@ -1,7 +1,6 @@
-
 #ifndef __STMFLASH_H__
 #define __STMFLASH_H__
-#include "sys.h"  
+
 /*
 //STM32F40x_41x Flash Memory Organization (User Manual PM0081):
 //	Sector [0:3]  Block Size = 16 KBytes
