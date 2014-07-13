@@ -11,26 +11,16 @@
 //Reference from ALIENTEK Warship Dev. Board IAP example
 //
 */ 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//用戶根據自己的需要設置
-#define STM32_FLASH_SIZE 512 	 		//所選STM32的FLASH容量大小(單位為K)
-#define STM32_FLASH_WREN 1              //使能FLASH寫入(0，不是能;1，使能)
+//User Defined Area
+#define STM32_FLASH_SIZE 1024 	//STM32 Flash Size (KB) 		
+#define STM32_FLASH_WREN 1      //Enable Write       
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//FLASH起始地址
-#define STM32_FLASH_BASE 0x08000000 	//STM32 FLASH的起始地址
-//FLASH解鎖鍵值
- 
+//FLASH Start Address
+#define STM32_FLASH_BASE 0x08000000 	//stm32 flash start address
 
-u16 STMFLASH_ReadHalfWord(u32 faddr);		  //讀出半字  
-void STMFLASH_WriteLenByte(u32 WriteAddr,u32 DataToWrite,u16 Len);	//指定地址開始寫入指定長度的數據
-u32 STMFLASH_ReadLenByte(u32 ReadAddr,u16 Len);						//指定地址開始讀取指定長度數據
-void STMFLASH_Write(u32 WriteAddr,u16 *pBuffer,u16 NumToWrite);		//從指定地址開始寫入指定長度的數據
-void STMFLASH_Read(u32 ReadAddr,u16 *pBuffer,u16 NumToRead);   		//從指定地址開始讀出指定長度的數據
-
-//測試寫入
-void Test_Write(u32 WriteAddr,u16 WriteData);								   
+//Function Prototype 			
+extern void STMFLASH_Write(u32 WriteAddr,u16 *pBuffer,u16 NumToWrite);		 									   
 #endif
 
 

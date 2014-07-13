@@ -29,12 +29,12 @@ u16 STMFLASH_ReadHalfWord(u32 faddr)
 		for(i=0;i<NumToWrite;i++)
 		{
 			FLASH_ProgramHalfWord(WriteAddr,pBuffer[i]);
-		    WriteAddr+=2;//pointer shift 2 bytes
+			WriteAddr+=2;//pointer shift 2 bytes
 		}  
 	} 	 
 	void STMFLASH_Write(u32 WriteAddr,u16 *pBuffer,u16 NumToWrite)	
 	{
-		u16 stm_sector_size = 16384; //1024*16 = 16kbyte		
+		u16 stm_sector_size = 16*1024; //16*1024 = 16kbyte		
 		u32 secpos;    //sector number (0~11) for stm32f40x_41x
 		u16 secoff;    //offset in sector (16bit)
 		u16 secremain; //remaining size in sector (16bit)	   
