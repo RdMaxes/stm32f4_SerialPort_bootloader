@@ -11,10 +11,10 @@
 //Reference from ALIENTEK Warship Dev. Board IAP example
 //
 */ 
+
 //User Defined Area
 #define STM32_FLASH_SIZE 1024 	//STM32 Flash Size (KB) 		
 #define STM32_FLASH_WREN 1      //Enable Write       
-//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //FLASH Start Address
 #define STM32_FLASH_BASE 0x08000000 	//stm32 flash start address
