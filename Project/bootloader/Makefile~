@@ -44,13 +44,14 @@ USER_LIB=../../User_Lib
 SRC+=	./main.c \
 	$(HARDWARE)/LED/led.c \
 	$(PERIPHERAL)/usart2/usart2.c \
-	$(USER_LIB)/myprintf/myprintf.c
+	$(USER_LIB)/myprintf/myprintf.c \
+	$(USER_LIB)/stmflash/stmflash.c
 
 #User Header Files
 CFLAGS_INCLUDE+=-I./ \
 		-I$(HARDWARE)/LED \
 		-I$(PERIPHERAL)/usart2 \
-		-I$(USER_LIB)/myprint
+		-I$(USER_LIB)/myprintf
 
 #============================================================================# 
 CFLAGS_DEFINE= \
