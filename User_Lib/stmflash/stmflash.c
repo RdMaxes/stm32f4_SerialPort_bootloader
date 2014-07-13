@@ -1,6 +1,4 @@
 #include "stmflash.h"
-#include "delay.h"
-#include "usart.h"
 /*
 //STM32F40x_41x Flash Memory Organization (User Manual PM0081):
 //	Sector [0:3]  Block Size = 16 KBytes
