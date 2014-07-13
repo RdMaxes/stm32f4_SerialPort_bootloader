@@ -7,6 +7,8 @@
 //	Sector [4]    Block Size = 64 KBytes
 //	Sector [5:11] Block Size = 128 KBytes
 //      ***Total: 1024 KBytes
+//Reference from ALIENTEK Warship Dev. Board IAP example
+//
 */ 
 
 //Read half-word from assigned address
