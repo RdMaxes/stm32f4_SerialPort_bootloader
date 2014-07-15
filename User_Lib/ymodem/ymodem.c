@@ -118,11 +118,9 @@ static int32_t Receive_Packet (uint8_t *data, int32_t *length, uint32_t timeout)
   return 0;
 }
 
-/**
-  * @brief  Receive a file using the ymodem protocol.
-  * @param  buf: Address of the first byte.
-  * @retval The size of the file.
-  */
+//Receive a file using the ymodem protocol
+//buf: pointer for data storage
+//return: size of IAP file
 int32_t Ymodem_Receive (uint8_t *buf)
 {
   uint8_t packet_data[PACKET_1K_SIZE + PACKET_OVERHEAD], file_size[FILE_SIZE_LENGTH], *file_ptr, *buf_ptr;
