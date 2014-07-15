@@ -12,9 +12,6 @@
 
 //User Defined Area      
 
-//FLASH Start Address
-#define STM32_FLASH_BASE 0x08000000 	//stm32 flash start address
-
 //Function Prototype 					 									   
 #endif
 

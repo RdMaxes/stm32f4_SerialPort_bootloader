@@ -1,5 +1,5 @@
 /*
-//@brief :Data Rx and flash programming via Ymodem protocol
+//@brief :Data Rx and flash via Ymodem protocol
 //        (*)STM32F40x_41x IAP flash is excuted in Ymodem_Receive() function
 //        (*)Modified from STM AN395 example
 //@Author:RdMaxes

@@ -29,7 +29,7 @@
 #define NAK_TIMEOUT             (0x100000)
 #define MAX_ERRORS              (5)
 
-//User Configuration Part
+//User Define Area
 #define IAP_Port USART2
 
 //Exported functions
