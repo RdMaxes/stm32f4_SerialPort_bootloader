@@ -9,7 +9,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stmflash.h"
-#include "common.h"
+#include "usart2.h"
 #include "ymodem.h"
 #include "string.h"
 
