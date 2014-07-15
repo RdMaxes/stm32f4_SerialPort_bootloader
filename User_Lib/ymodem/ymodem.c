@@ -1,10 +1,12 @@
 /*
-//@brief :Data Tx/Rx via Ymodem protocol
+//@brief :Data Rx and flash programming via Ymodem protocol
 //        (*)STM32F40x_41x IAP flash is excuted in Ymodem_Receive() function
 //        (*)Modified from STM AN395 example
 //@Author:RdMaxes
 //@Data  :2014/07/15
 //@Usage :
+//        (*)IAP_Port is defined in ymodem.h
+//        (*)IAP_Port setting: USART2, 230400bps, 8, n, 1
 //@Note  :
 */
 
@@ -185,7 +187,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
                       return -1;
                     }
                     /* erase user application area */
-                    FLASH_If_Erase(APPLICATION_ADDRESS);
+                    FLASH_If_Erase(appaddr);
                     Send_Byte(ACK);
                     Send_Byte(CRC16);
                   }
