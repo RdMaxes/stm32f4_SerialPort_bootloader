@@ -190,7 +190,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
                       return -1;
                     }
                     /* erase user application area */
-                    FLASH_If_Erase(appaddr);
+                    STM_FLASH_Erase(appaddr);
                     Send_Byte(ACK);
                     Send_Byte(CRC16);
                   }
@@ -210,7 +210,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
                   ramsource = (uint32_t)buf;
 
                   /* Write received data in Flash */
-                  if (FLASH_If_Write(&flashdestination, (uint32_t*) ramsource, (uint16_t) packet_length/4)  == 0)
+                  if (STM_FLASH_Write(&flashdestination, (uint32_t*) ramsource, (uint16_t) packet_length/4)  == 0)
                   {
                     Send_Byte(ACK);
                   }
