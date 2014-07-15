@@ -5,7 +5,7 @@ static uint32_t GetSector(uint32_t Address);
 
 
 //unlock Flash for write acess
-void FLASH_Init(void)
+void STM_FLASH_Init(void)
 { 
   FLASH_Unlock(); 
 
@@ -14,18 +14,15 @@ void FLASH_Init(void)
                   FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR|FLASH_FLAG_PGSERR);
 }
 
-/**
-  * @brief  This function does an erase of all user flash area
-  * @param  StartSector: start of user flash area
-  * @retval 0: user flash area successfully erased
-  *         1: error occurred
-  */
-uint32_t FLASH_If_Erase(uint32_t StartSector)
+//This function does an erase of all user flash area
+//StartSector: start of user flash area
+//return: 0=user flash area successfully erased, 1=error occurred
+uint32_t STM_FLASH_Erase(uint32_t StartSector)
 {
   uint32_t UserStartSector = FLASH_Sector_1, i = 0;
 
   /* Get the sector where start the user flash area */
-  UserStartSector = GetSector(APPLICATION_ADDRESS);
+  UserStartSector = GetSector(StartSector);
 
   for(i = UserStartSector; i <= FLASH_Sector_11; i += 8)
   {
