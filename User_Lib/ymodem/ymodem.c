@@ -57,7 +57,8 @@ static  int32_t Receive_Byte (uint8_t *c, uint32_t timeout)
 //return: 0
 static uint32_t Send_Byte (uint8_t c)
 {
-  SerialPutChar(c);
+  USART_SendData(IAP_Port, c);
+  while (USART_GetFlagStatus(IAP_Port, USART_FLAG_TXE) == RESET);
   return 0;
 }
 
