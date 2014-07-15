@@ -14,6 +14,7 @@
 #include "stmflash.h"
 #include "ymodem.h"
 #include "string.h"
+#include "stdlib.h"
 
 //extern variables
 extern uint8_t FileName[];
@@ -126,8 +127,9 @@ static int32_t Receive_Packet (uint8_t *data, int32_t *length, uint32_t timeout)
 //return: size of IAP file
 int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
 {
-  uint8_t packet_data[PACKET_1K_SIZE + PACKET_OVERHEAD], file_size[FILE_SIZE_LENGTH], *file_ptr, *buf_ptr;
+  uint8_t packet_data[PACKET_1K_SIZE + PACKET_OVERHEAD], *file_ptr, *buf_ptr;
   int32_t i, packet_length, session_done, file_done, packets_received, errors, session_begin, size = 0;
+  char file_size[FILE_SIZE_LENGTH];
   uint32_t flashdestination, ramsource;
 
   //Initialize flashdestination variable
@@ -176,7 +178,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
                       file_size[i++] = *file_ptr++;
                     }
                     file_size[i++] = '\0';
-                    Str2Int(file_size, &size);
+                    size = atoi(file_size);
 
                     /* Test the size of the image to be sent */
                     /* Image size is greater than Flash size */
