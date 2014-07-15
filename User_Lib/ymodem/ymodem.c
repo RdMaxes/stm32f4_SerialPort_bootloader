@@ -128,7 +128,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
   int32_t i, packet_length, session_done, file_done, packets_received, errors, session_begin, size = 0;
   uint32_t flashdestination, ramsource;
 
-  /* Initialize flashdestination variable */
+  //Initialize flashdestination variable
   flashdestination = appaddr;
 
   for (session_done = 0, errors = 0, session_begin = 0; ;)
