@@ -1,14 +1,8 @@
 //Includes
-#include "flash_if.h"
+#include "stmflash.h"
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
 static uint32_t GetSector(uint32_t Address);
 
-/* Private functions ---------------------------------------------------------*/
 
 /**
   * @brief  Unlocks Flash for write access
