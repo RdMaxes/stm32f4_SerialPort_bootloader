@@ -112,10 +112,10 @@ static int32_t Receive_Packet (uint8_t *data, int32_t *length, uint32_t timeout)
       return -1;
     }
   }
-  if (data[PACKET_SEQNO_INDEX] != ((data[PACKET_SEQNO_COMP_INDEX] ^ 0xff) & 0xff))
-  {
-    return -1;
-  }
+//  if ((uint8_t)data[PACKET_SEQNO_INDEX] != ((uint8_t)(data[PACKET_SEQNO_COMP_INDEX] ^ 0xff) & 0xff))
+//  {
+//    return -1;
+//  }
   *length = packet_size;
   return 0;
 }
