@@ -38,17 +38,16 @@ uint32_t STM_FLASH_Erase(uint32_t StartSector)
   return (0);
 }
 
-/**
-  * @brief  This function writes a data buffer in flash (data are 32-bit aligned).
-  * @note   After writing data buffer, the flash content is checked.
-  * @param  FlashAddress: start address for writing data buffer
-  * @param  Data: pointer on data buffer
-  * @param  DataLength: length of data buffer (unit is 32-bit word)   
-  * @retval 0: Data successfully written to Flash memory
-  *         1: Error occurred while writing data in Flash memory
-  *         2: Written Data in flash memory is different from expected one
-  */
-uint32_t FLASH_If_Write(__IO uint32_t* FlashAddress, uint32_t* Data ,uint32_t DataLength)
+//This function writes a data buffer in flash (data are 32-bit aligned).
+//After writing data buffer, the flash content is checked.
+//FlashAddress: start address for writing data buffer
+//Data: pointer on data buffer
+//DataLength: length of data buffer (unit is 32-bit word)   
+//return:
+//      0=Data successfully written to Flash memory
+//      1=Error occurred while writing data in Flash memory
+//      2=Written Data in flash memory is different from expected one
+uint32_t STM_FLASH_Write(__IO uint32_t* FlashAddress, uint32_t* Data ,uint32_t DataLength)
 {
   uint32_t i = 0;
 
