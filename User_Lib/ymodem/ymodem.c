@@ -60,18 +60,13 @@ static uint32_t Send_Byte (uint8_t c)
   return 0;
 }
 
-/**
-  * @brief  Receive a packet from sender
-  * @param  data
-  * @param  length
-  * @param  timeout
-  *     0: end of transmission
-  *    -1: abort by sender
-  *    >0: packet length
-  * @retval 0: normally return
-  *        -1: timeout or packet error
-  *         1: abort by user
-  */
+//Rx a packet from sender
+//data: pointer to store rx data
+//length: packet length
+//timeout: rx time out
+//return:0=normally return
+//      -1=timeout or packet error
+//       1=abort by user 
 static int32_t Receive_Packet (uint8_t *data, int32_t *length, uint32_t timeout)
 {
   uint16_t i, packet_size;
