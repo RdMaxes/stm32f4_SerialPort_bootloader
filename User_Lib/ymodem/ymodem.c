@@ -253,15 +253,6 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
   return (int32_t)size;
 }
 
-/**
-  * @brief  check response using the ymodem protocol
-  * @param  buf: Address of the first byte
-  * @retval The size of the file
-  */
-int32_t Ymodem_CheckResponse(uint8_t c)
-{
-  return 0;
-}
 
 /**
   * @brief  Prepare the first block
