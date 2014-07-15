@@ -4,12 +4,8 @@
 static uint32_t GetSector(uint32_t Address);
 
 
-/**
-  * @brief  Unlocks Flash for write access
-  * @param  None
-  * @retval None
-  */
-void FLASH_If_Init(void)
+//unlock Flash for write acess
+void FLASH_Init(void)
 { 
   FLASH_Unlock(); 
 
