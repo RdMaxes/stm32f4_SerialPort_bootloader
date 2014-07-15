@@ -180,7 +180,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
 
                     /* Test the size of the image to be sent */
                     /* Image size is greater than Flash size */
-                    if (size > (USER_FLASH_SIZE + 1))
+                    if (size > (int32_t)(USER_FLASH_SIZE + 1))
                     {
                       /* End session */
                       Send_Byte(CA);
@@ -225,7 +225,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
               }
           }
           break;
-        case 1:size
+        case 1:
           Send_Byte(CA);
           Send_Byte(CA);
           return -3;
