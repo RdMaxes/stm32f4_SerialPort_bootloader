@@ -1,11 +1,8 @@
-/* Define to prevent recursive inclusion -------------------------------------*/
+//Define to prevent recursive inclusion
 #ifndef __YMODEM_H_
 #define __YMODEM_H_
 
-/* Includes ------------------------------------------------------------------*/
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
+//Exported macro
 #define PACKET_SEQNO_INDEX      (1)
 #define PACKET_SEQNO_COMP_INDEX (2)
 
@@ -32,11 +29,8 @@
 #define NAK_TIMEOUT             (0x100000)
 #define MAX_ERRORS              (5)
 
-/* Exported functions ------------------------------------------------------- */
+//Exported functions
 int32_t Ymodem_Receive (uint8_t *);
 uint8_t Ymodem_Transmit (uint8_t *,const  uint8_t* , uint32_t );
 
-#endif  /* __YMODEM_H_ */
-
-
-/*******************(C)COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
+#endif 
