@@ -4,23 +4,20 @@
 //        (*)Modified from STM AN395 example
 //@Author:RdMaxes
 //@Data  :2014/07/15
+//@Usage :
 //@Note  :
 */
 
-/* Includes ------------------------------------------------------------------*/
+//Includes 
 #include "stmflash.h"
 #include "usart2.h"
 #include "ymodem.h"
 #include "string.h"
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
+//extern variables
 extern uint8_t FileName[];
 
-/* Private function prototypes -----------------------------------------------*/
-/* Private functions ---------------------------------------------------------*/
+
 
 /**
   * @brief  Receive byte from sender
