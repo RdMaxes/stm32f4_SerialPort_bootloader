@@ -25,7 +25,7 @@
   */ 
   
 /* Includes ------------------------------------------------------------------*/
-#include "flash_if.h"
+#include "stmflash.h"
 #include "common.h"
 #include "ymodem.h"
 #include "string.h"
