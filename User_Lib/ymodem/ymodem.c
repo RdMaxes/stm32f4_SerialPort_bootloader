@@ -17,8 +17,22 @@
 //extern variables
 extern uint8_t FileName[];
 
+//check if one byte rx successfully
+//key: variabl to store rx data
+//return: 1=success, 0=fail
+static uint32_t SerialKeyPressed(uint8_t *key)
+{
 
-
+  if ( USART_GetFlagStatus(IAP_Port, USART_FLAG_RXNE) != RESET)
+  {
+    *key = (uint8_t)IAP_Port->DR;
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
 /**
   * @brief  Receive byte from sender
   * @param  c: Character
