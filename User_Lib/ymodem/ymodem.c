@@ -33,13 +33,12 @@ static uint32_t SerialKeyPressed(uint8_t *key)
     return 0;
   }
 }
-/**
-  * @brief  Receive byte from sender
-  * @param  c: Character
-  * @param  timeout: Timeout
-  * @retval 0: Byte received
-  *        -1: Timeout
-  */
+
+
+//Rx a byte from sender
+//c: variable to store data
+//timeout: read time out
+//return: 0=success, -1=fail
 static  int32_t Receive_Byte (uint8_t *c, uint32_t timeout)
 {
   while (timeout-- > 0)
@@ -52,11 +51,9 @@ static  int32_t Receive_Byte (uint8_t *c, uint32_t timeout)
   return -1;
 }
 
-/**
-  * @brief  Send a byte
-  * @param  c: Character
-  * @retval 0: Byte sent
-  */
+//send a byte via IAP_Port
+//c: byte to send
+//return: 0
 static uint32_t Send_Byte (uint8_t c)
 {
   SerialPutChar(c);
