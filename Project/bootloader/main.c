@@ -5,6 +5,8 @@
 #include "stmflash.h"	
 #include "ymodem.h"
 
+//Delay for a while
+//time: delay time
 static void delay(int32_t time)
 {
 	while(time--);
