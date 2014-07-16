@@ -5,10 +5,69 @@
 #include "stmflash.h"	
 #include "ymodem.h"
 
-
+//Global Variables
 uint8_t FileName[FILE_NAME_LENGTH];//array to store filename of download *.bin
+uint8_t buf_1k[1024] ={0};
 
+//Convert an interger to a string
+//str: converted string
+//intnum: integer waiting for converting
+static void Int2Str(uint8_t* str, int32_t intnum)
+{
+  uint32_t i, Div = 1000000000, j = 0, Status = 0;
 
+  for (i = 0; i < 10; i++)
+  {
+    str[j++] = (intnum / Div) + 48;
+
+    intnum = intnum % Div;
+    Div /= 10;
+    if ((str[j-1] == '0') & (Status == 0))
+    {
+      j = 0;
+    }
+    else
+    {
+      Status++;
+    }
+  }
+}
+
+//Download User Application into flash
+static void Download2Flash(void)
+{
+	uint8_t Number[10] = "          ";
+	int32_t Size = 0;
+
+	my_printf("Waiting for the file to be sent ... (press 'a' to abort)\n\r");
+	Size = Ymodem_Receive(&buf_1k[0],APPLICATION_ADDRESS);
+	if (Size > 0)
+	{
+		my_printf("\n\n\r Programming Completed Successfully!\n\r--------------------------------\r\n Name: ");
+		my_printf((char*)FileName);
+		Int2Str(Number, Size);
+		my_printf("\n\r Size: ");
+		my_printf((char*)Number);
+		my_printf(" Bytes\r\n");
+		my_printf("-------------------\n");
+	}
+	else if (Size == -1)
+	{
+		my_printf("\n\n\rThe image size is higher than the allowed space memory!\n\r");
+	}
+	else if (Size == -2)
+	{
+		my_printf("\n\n\rVerification failed!\n\r");
+	}
+	else if (Size == -3)
+	{
+		my_printf("\r\n\nAborted by user.\n\r");
+	}
+	else
+	{
+		my_printf("\n\rFailed to receive the file!\n\r");
+	}
+}
 //Delay for a while
 //time: delay time
 static void delay(int32_t time)
@@ -57,11 +116,12 @@ int main(void)
 		cmd = Usart2_GetByte();
 		if (cmd == '1')
 		{
-			
+			//Download User Application file into flash			
+			Download2Flash();
 		}
 		else if (cmd == '2')
 		{
-			
+			my_printf("\r\nCurrently not support Flash Upload!");
 		}
 		else if (cmd == '3') /* execute the new program */
 		{

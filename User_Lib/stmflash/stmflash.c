@@ -2,9 +2,13 @@
 //@brief :STM flash programming operation
 //        (*)STM32F40x_41x IAP flash is excuted in Ymodem_Receive() function
 //        (*)Modified from STM AN395 example
+//	  (*)Reference: PM0081
 //@Author:RdMaxes
 //@Data  :2014/07/16
 //@Usage :
+//	  (*)In header file <stmflash.h> user can define App program location
+//	  (*)IAP program location is start from 0x08000000 (sector 0~3, 64KB)
+//        (*)APPLICATION_ADDRESS = App program location, default setting is 0x0801000 (sector 4~11, 960KB)
 //@Note  :
 */
 

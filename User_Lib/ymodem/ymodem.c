@@ -6,6 +6,7 @@
 //@Data  :2014/07/15
 //@Usage :
 //        (*)IAP_Port is defined in ymodem.h
+//        (*)This source file does not include IAP_Port initialize part
 //        (*)IAP_Port setting: USART2, 230400bps, 8, n, 1
 //@Note  :
 */
