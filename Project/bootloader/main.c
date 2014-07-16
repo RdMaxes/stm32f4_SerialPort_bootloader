@@ -83,6 +83,8 @@ int main(void)
 {	
 	uint8_t FlashProtection = 0;	
 	uint8_t cmd = 0;
+	//Unlock the Flash Program Erase controller
+	STM_FLASH_Init();
 
 	LED_Init();
 	Usart2_Init(230400);
@@ -119,7 +121,7 @@ int main(void)
 		//Receive a byte from usart2
 		cmd = Usart2_GetByte();
 		if (cmd == '1')
-		{
+		{						
 			//Download User Application file into flash			
 			Download2Flash();
 		}
