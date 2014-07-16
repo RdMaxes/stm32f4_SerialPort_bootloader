@@ -31,7 +31,7 @@ void STM_FLASH_Init(void);
 uint32_t STM_FLASH_Erase(uint32_t StartSector);
 uint32_t STM_FLASH_Write(__IO uint32_t* FlashAddress, uint32_t* Data ,uint32_t DataLength);
 uint32_t STM_FLASH_DisableWriteProtection(void);
-uint16_t STM_FLASH_GetWriteProtectionStatus(void)			 									   
+uint16_t STM_FLASH_GetWriteProtectionStatus(void);			 									   
 #endif
 
 
