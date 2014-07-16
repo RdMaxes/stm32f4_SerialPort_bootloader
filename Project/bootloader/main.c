@@ -51,7 +51,7 @@ int main(void)
 	my_printf("\r\nPlease select the option...");
 
 	//Receive a byte from usart2
-	key = USART2_GetKey();
+	key = Usart2_GetByte();
 	if (key == 0x31)
 	{
 	}

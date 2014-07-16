@@ -1,12 +1,15 @@
 #include <stm32f4xx.h>
 #include "usart2.h"
 
+//Private Function Prototype
+static uint32_t Usart2_RxByte(uint8_t *key);
+
 //USART2 get a byte DR
 //key: pointer to store data
 //return: 
 //      0:fail
 //      1:success
-static uint32_t Usart_RxByte(uint8_t *key)
+static uint32_t Usart2_RxByte(uint8_t *key)
 {
 
   if ( USART_GetFlagStatus(USART2, USART_FLAG_RXNE) != RESET)
