@@ -19,6 +19,7 @@ static void delay(int32_t time)
 int main(void)
 {	
 	uint8_t FlashProtection = 0;	
+	uint8_t cmd = 0;
 
 	LED_Init();
 	Usart2_Init(230400);
@@ -51,14 +52,14 @@ int main(void)
 	my_printf("\r\nPlease select the option...");
 
 	//Receive a byte from usart2
-	key = Usart2_GetByte();
-	if (key == 0x31)
+	cmd = Usart2_GetByte();
+	if (cmd == 0x31)
 	{
 	}
-	else if (key == 0x32)
+	else if (cmd == 0x32)
 	{
 	}
-	else if (key == 0x33) /* execute the new program */
+	else if (cmd == 0x33) /* execute the new program */
 	{
 //		JumpAddress = *(__IO uint32_t*) (APPLICATION_ADDRESS + 4);
 //		/* Jump to user application */
@@ -67,10 +68,10 @@ int main(void)
 //		__set_MSP(*(__IO uint32_t*) APPLICATION_ADDRESS);
 //		Jump_To_Application();
 	}
-	else if ((key == 0x34) && (FlashProtection == 1))
+	else if ((cmd == 0x34) && (FlashProtection == 1))
 	{
 		/* Disable the write protection */
-		switch (FLASH_If_DisableWriteProtection())
+		switch (STM_FLASH_DisableWriteProtection())
 		{
 			case 1:
 			{
