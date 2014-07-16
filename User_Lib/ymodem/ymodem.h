@@ -19,7 +19,7 @@
 #define STX                     (0x02)  /* start of 1024-byte data packet */
 #define EOT                     (0x04)  /* end of transmission */
 #define ACK                     (0x06)  /* acknowledge */
-#define NAK                     (0x15)  /* negative acknowledge */
+#define NACK                    (0x15)  /* negative acknowledge */
 #define CA                      (0x18)  /* two of these in succession aborts transfer */
 #define CRC16                   (0x43)  /* 'C' == 0x43, request 16-bit CRC */
 
