@@ -48,7 +48,7 @@ int main(void)
 	      my_printf("\r\nExecute The New Program -------------------------------------------[4]");
 	}
 	my_printf("\r\n======================================================================");	
-
+	my_printf("\r\nPlease select the option...");
 	while(1) 
 	{
 		delay(8000000);
