@@ -30,7 +30,9 @@
 #define MAX_ERRORS              (5)
 
 //User Define Area
-#define IAP_Port USART2
+#ifndef IAP_Port
+	#define IAP_Port USART2
+#endif 
 
 //Exported functions
 int32_t Ymodem_Receive (uint8_t *,uint32_t appaddr);

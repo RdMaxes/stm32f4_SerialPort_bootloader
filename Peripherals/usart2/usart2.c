@@ -1,5 +1,39 @@
 #include <stm32f4xx.h>
 #include "usart2.h"
+
+//USART2 get a byte DR
+//key: pointer to store data
+//return: 
+//      0:fail
+//      1:success
+static uint32_t Usart_RxByte(uint8_t *key)
+{
+
+  if ( USART_GetFlagStatus(USART2, USART_FLAG_RXNE) != RESET)
+  {
+    *key = (uint8_t)USART2->DR;
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
+//USART2 get a byte from HyperTerminal
+//return: Rx byte
+uint8_t Usart2_GetByte(void)
+{
+  uint8_t key = 0;
+
+  /* Waiting for user input */
+  while (1)
+  {
+    if (Usart2_RxByte((uint8_t*)&key)) break;
+  }
+  return key;
+
+}
  
 //DMA1 for usart2 configuration
 static void DMA1_Usart2_Config(void)  
