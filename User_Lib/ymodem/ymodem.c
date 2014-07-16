@@ -129,14 +129,14 @@ static int32_t Receive_Packet (uint8_t *data, int32_t *length, uint32_t timeout)
 //return: size of IAP file
 int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
 {
-  uint8_t packet_data[PACKET_1K_SIZE + PACKET_OVERHEAD], *file_ptr, *buf_ptr;
+  uint8_t packet_data[PACKET_1K_SIZE + PACKET_OVERHEAD], *file_ptr, *buf_ptr,flag_EOT;
   int32_t i, packet_length, session_done, file_done, packets_received, errors, session_begin, size = 0;
   char file_size[FILE_SIZE_LENGTH];
   uint32_t flashdestination, ramsource;
 
   //Initialize flashdestination variable
   flashdestination = appaddr;
-
+  flag_EOT = 0;
   for (session_done = 0, errors = 0, session_begin = 0; ;)
   {
     for (packets_received = 0, file_done = 0, buf_ptr = buf; ;)
@@ -153,15 +153,16 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
               return 0;
             /* End of transmission */
             case 0:
-	      if(file_done==0) //first EOT
+	      if(flag_EOT==0) //first EOT
 	      {	        
   		Send_Byte(NACK); 		              
-                file_done = 1;
+                flag_EOT = 1;
 	      }
-	      else if (file_done==1) //second EOT
+	      else if (flag_EOT==1) //second EOT
 	      {
 	      	Send_Byte(ACK); 
-		Send_Byte(CRC16);
+		Send_Byte('C');
+                file_done = 1;
               }
               break;
             /* Normal packet */
