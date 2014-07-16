@@ -54,8 +54,8 @@ void LED_Init(void)
 //make led on/off loop
 void LED_loop(void)
 {	
-	LED_GREEN_ON();LED_delay(10000);LED_GREEN_OFF();LED_delay(10000);
-	LED_BLUE_ON();LED_delay(10000);LED_BLUE_OFF();LED_delay(10000);
-	LED_RED_ON();LED_delay(10000);LED_RED_OFF();LED_delay(10000);
-	LED_ORANGE_ON();LED_delay(10000);LED_ORANGE_OFF();LED_delay(10000);
+	LED_GREEN_ON();LED_delay(1000000);LED_GREEN_OFF();LED_delay(1000000);
+	LED_BLUE_ON();LED_delay(1000000);LED_BLUE_OFF();LED_delay(1000000);
+	LED_RED_ON();LED_delay(1000000);LED_RED_OFF();LED_delay(1000000);
+	LED_ORANGE_ON();LED_delay(1000000);LED_ORANGE_OFF();LED_delay(1000000);
 }

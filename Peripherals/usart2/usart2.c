@@ -33,6 +33,7 @@ uint8_t Usart2_GetByte(void)
   while (1)
   {
     if (Usart2_RxByte((uint8_t*)&key)) break;
+    
   }
   return key;
 

@@ -47,7 +47,13 @@ static void Download2Flash(void)
 	Size = Ymodem_Receive(&buf_1k[0],APPLICATION_ADDRESS);
 	if (Size > 0)
 	{
-		my_printf("\n\n\r Programming Completed Successfully!\n\r--------------------------------\r\n Name: ");
+		my_printf("-------------------\n");
+		my_printf("-------------------\n");
+		my_printf("-------------------\n");
+		my_printf("-------------------\n");
+		my_printf("-------------------\n");
+		my_printf("-------------------\n");	
+		my_printf("\n\n\n\n\n\n\n\n\n\r Programming Completed Successfully!\n\r--------------------------------\r\n Name: ");
 		my_printf((char*)FileName);
 		Int2Str(Number, Size);
 		my_printf("\n\r Size: ");

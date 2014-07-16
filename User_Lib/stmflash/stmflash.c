@@ -18,13 +18,6 @@
 //Private Function
 static uint32_t GetSector(uint32_t Address);
 
-//Delay for a while
-//time: delay time
-static void flash_delay(int32_t time)
-{
-	while(time--);
-}
-
 //unlock Flash for write acess
 void STM_FLASH_Init(void)
 { 
@@ -33,7 +26,6 @@ void STM_FLASH_Init(void)
   /* Clear pending flags (if any) */  
   FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR | 
                   FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR|FLASH_FLAG_PGSERR);
-  flash_delay(80000);
 }
 
 //This function does an erase of all user flash area

@@ -75,7 +75,7 @@ static int32_t Receive_Packet (uint8_t *data, int32_t *length, uint32_t timeout)
 {
   uint16_t i, packet_size;
   uint8_t c;
-  Send_Byte(CRC16);
+
   *length = 0;
   if (Receive_Byte(&c, timeout) != 0)
   {
