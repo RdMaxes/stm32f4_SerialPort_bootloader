@@ -50,6 +50,53 @@ int main(void)
 	my_printf("\r\n======================================================================");	
 	my_printf("\r\nPlease select the option...");
 
+	//Receive a byte from usart2
+	key = USART2_GetKey();
+	if (key == 0x31)
+	{
+	}
+	else if (key == 0x32)
+	{
+	}
+	else if (key == 0x33) /* execute the new program */
+	{
+//		JumpAddress = *(__IO uint32_t*) (APPLICATION_ADDRESS + 4);
+//		/* Jump to user application */
+//		Jump_To_Application = (pFunction) JumpAddress;
+//		/* Initialize user application's Stack Pointer */
+//		__set_MSP(*(__IO uint32_t*) APPLICATION_ADDRESS);
+//		Jump_To_Application();
+	}
+	else if ((key == 0x34) && (FlashProtection == 1))
+	{
+		/* Disable the write protection */
+		switch (FLASH_If_DisableWriteProtection())
+		{
+			case 1:
+			{
+				my_printf("\r\nWrite Protection disabled...");
+				FlashProtection = 0;
+				break;
+			}
+			case 2:
+			{
+				my_printf("\r\nError: Flash write unprotection failed...");
+				break;
+			}
+			default:{}
+		}
+	}
+	else
+	{
+		if (FlashProtection == 0)
+		{
+			my_printf("\r\nInvalid Number ! ==> The number should be either 1, 2 or 3");
+		}
+		else
+		{
+			my_printf("\r\nInvalid Number ! ==> The number should be either 1, 2, 3 or 4");
+		}
+	}
 
 	while(1) 
 	{
