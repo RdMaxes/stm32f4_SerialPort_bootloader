@@ -98,15 +98,15 @@ void Usart2_Init(int baudrate)
 	USART_Init(USART2, &USART_InitStruct);
 	USART_Cmd(USART2, ENABLE);
 	//enable RX interrupt
-	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
+//	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
 	 
 	//usart2 NVIC cconfiguration
-	NVIC_InitStruct.NVIC_IRQChannel = USART2_IRQn;
-	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
-	NVIC_Init(&NVIC_InitStruct);
+//	NVIC_InitStruct.NVIC_IRQChannel = USART2_IRQn;
+//	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+//	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;
+//	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
+//	NVIC_Init(&NVIC_InitStruct);
 
 	//Enable usart2 DMA Tx
-	DMA1_Usart2_Config();	
+//	DMA1_Usart2_Config();	
 }
