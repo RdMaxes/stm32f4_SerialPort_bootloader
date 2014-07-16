@@ -5,9 +5,12 @@
 #include "stmflash.h"	
 #include "ymodem.h"
 
+typedef  void (*pFunction)(void);
+
 //Global Variables
 uint8_t FileName[FILE_NAME_LENGTH];//array to store filename of download *.bin
 uint8_t buf_1k[1024] ={0};
+pFunction Jump_To_Application;
 
 //Convert an interger to a string
 //str: converted string
@@ -125,12 +128,12 @@ int main(void)
 		}
 		else if (cmd == '3') /* execute the new program */
 		{
-	//		JumpAddress = *(__IO uint32_t*) (APPLICATION_ADDRESS + 4);
-	//		/* Jump to user application */
-	//		Jump_To_Application = (pFunction) JumpAddress;
-	//		/* Initialize user application's Stack Pointer */
-	//		__set_MSP(*(__IO uint32_t*) APPLICATION_ADDRESS);
-	//		Jump_To_Application();
+			JumpAddress = *(__IO uint32_t*) (APPLICATION_ADDRESS + 4);
+			/* Jump to user application */
+			Jump_To_Application = (pFunction) JumpAddress;
+			/* Initialize user application's Stack Pointer */
+			__set_MSP(*(__IO uint32_t*) APPLICATION_ADDRESS);
+			Jump_To_Application();
 		}
 		else if ((cmd == '4') && (FlashProtection == 1))
 		{
