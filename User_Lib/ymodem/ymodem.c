@@ -17,7 +17,7 @@
 #include "stdlib.h"
 
 //extern variables
-extern uint8_t FileName[];
+extern uint8_t FileName[FILE_NAME_LENGTH];
 
 //check if one byte rx successfully
 //key: variabl to store rx data
