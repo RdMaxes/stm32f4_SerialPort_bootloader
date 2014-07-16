@@ -71,7 +71,7 @@ void Usart2_Init(int baudrate)
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
 	USART_InitTypeDef USART_InitStruct;
-	NVIC_InitTypeDef NVIC_InitStruct;
+//	NVIC_InitTypeDef NVIC_InitStruct;
 
 	//enable clock for Tx/Rx pins
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -108,5 +108,5 @@ void Usart2_Init(int baudrate)
 //	NVIC_Init(&NVIC_InitStruct);
 
 	//Enable usart2 DMA Tx
-//	DMA1_Usart2_Config();	
+	DMA1_Usart2_Config();	
 }
