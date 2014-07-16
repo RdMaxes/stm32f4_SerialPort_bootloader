@@ -26,7 +26,7 @@ int main(void)
 	my_printf("\r\n======================================================================");
 	my_printf("\r\n\r\n");	
 	//Test if any sector of Flash memory where user application will be loaded is write protected
-	if (FLASH_If_GetWriteProtectionStatus() == 0)   
+	if (STM_FLASH_GetWriteProtectionStatus() == 0)   
 	{
 		FlashProtection = 1;
 	}
@@ -43,7 +43,7 @@ int main(void)
 
 	if(FlashProtection != 0)
 	{
-	      SerialPutString("\r\nExecute The New Program -------------------------------------------[4]");
+	      my_printf("\r\nExecute The New Program -------------------------------------------[4]");
 	}
 	my_printf("\r\n======================================================================");	
 
