@@ -168,7 +168,7 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
             default:
               if ((packet_data[PACKET_SEQNO_INDEX] & 0xff) != (packets_received & 0xff))
               {
-                Send_Byte(NAK);//local data sequence number is different to rx data packet.
+                Send_Byte(NACK);//local data sequence number is different to rx data packet.
               }
               else
               {
