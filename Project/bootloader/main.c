@@ -55,14 +55,15 @@ int main(void)
 
 		//Receive a byte from usart2
 		cmd = Usart2_GetByte();
-		if (cmd == 0x31)
+		if (cmd == '1')
 		{
-		
+			my_printf("\r\nTHIS IS CMD 1!");
 		}
-		else if (cmd == 0x32)
+		else if (cmd == '2')
 		{
+			my_printf("\r\nTHIS IS CMD 2!");
 		}
-		else if (cmd == 0x33) /* execute the new program */
+		else if (cmd == '3') /* execute the new program */
 		{
 	//		JumpAddress = *(__IO uint32_t*) (APPLICATION_ADDRESS + 4);
 	//		/* Jump to user application */
@@ -70,8 +71,9 @@ int main(void)
 	//		/* Initialize user application's Stack Pointer */
 	//		__set_MSP(*(__IO uint32_t*) APPLICATION_ADDRESS);
 	//		Jump_To_Application();
+			my_printf("\r\nTHIS IS CMD 3!");
 		}
-		else if ((cmd == 0x34) && (FlashProtection == 1))
+		else if ((cmd == '4') && (FlashProtection == 1))
 		{
 			/* Disable the write protection */
 			switch (STM_FLASH_DisableWriteProtection())
