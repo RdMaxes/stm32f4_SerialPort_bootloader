@@ -1,5 +1,13 @@
 #include <stm32f4xx.h>
 #include "led.h"
+
+
+//Delay for a while
+//time: delay time
+static void LED_delay(int32_t time)
+{
+	while(time--);
+}
  
 //LED configuration 
 void LED_Init(void)
