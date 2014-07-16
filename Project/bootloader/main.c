@@ -1,3 +1,13 @@
+/*
+//@brief :STM32F40x_41x In Application Programming (IAP) Practice
+//@Author:RdMaxes
+//@Data  :2014/07/17
+//@Note  :
+//	 (*)2014/07/17 Basic IAP function is completed 
+//	    bug(1):after IAP download finished, file name, size and success notification message cannot print out.
+*/
+
+//Includes 
 #include <stm32f4xx.h>
 #include "led.h"
 #include "usart2.h"
@@ -48,18 +58,12 @@ static void Download2Flash(void)
 	if (Size > 0)
 	{
 		my_printf("-------------------\n");
-		my_printf("-------------------\n");
-		my_printf("-------------------\n");
-		my_printf("-------------------\n");
-		my_printf("-------------------\n");
-		my_printf("-------------------\n");	
-		my_printf("\n\n\n\n\n\n\n\n\n\r Programming Completed Successfully!\n\r--------------------------------\r\n Name: ");
+		my_printf("\n\r Programming Completed Successfully!\n\r--------------------------------\r\n Name: ");
 		my_printf((char*)FileName);
 		Int2Str(Number, Size);
 		my_printf("\n\r Size: ");
 		my_printf((char*)Number);
 		my_printf(" Bytes\r\n");
-		my_printf("-------------------\n");
 	}
 	else if (Size == -1)
 	{
