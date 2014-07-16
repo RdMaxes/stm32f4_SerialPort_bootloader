@@ -140,11 +140,10 @@ uint32_t FLASH_If_DisableWriteProtection(void)
   return (1);
 }
 
-/**
-  * @brief  Gets the sector of a given address
-  * @param  Address: Flash address
-  * @retval The sector of a given address
-  */
+
+//Gets the sector of a given address for STM32F40x_41x
+//Address: Flash address
+//return: The sector of a given address
 static uint32_t GetSector(uint32_t Address)
 {
   uint32_t sector = 0;
