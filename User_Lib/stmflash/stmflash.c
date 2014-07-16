@@ -90,7 +90,7 @@ uint32_t STM_FLASH_Write(__IO uint32_t* FlashAddress, uint32_t* Data ,uint32_t D
 //return: 
 //       0=No write protected sectors inside the user flash area
 //       1=Some sectors inside the user flash area are write protected
-uint16_t FLASH_If_GetWriteProtectionStatus(void)
+uint16_t STM_FLASH_GetWriteProtectionStatus(void)
 {
   uint32_t UserStartSector = FLASH_Sector_1;
 
