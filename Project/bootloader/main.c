@@ -11,6 +11,7 @@ typedef  void (*pFunction)(void);
 uint8_t FileName[FILE_NAME_LENGTH];//array to store filename of download *.bin
 uint8_t buf_1k[1024] ={0};
 pFunction Jump_To_Application;
+uint32_t JumpAddress;
 
 //Convert an interger to a string
 //str: converted string
