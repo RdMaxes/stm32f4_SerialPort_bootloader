@@ -25,15 +25,11 @@ int main(void)
 	my_printf("\r\n=                        Version: 1.01                               =");
 	my_printf("\r\n======================================================================");
 	my_printf("\r\n\r\n");	
+
 	//Test if any sector of Flash memory where user application will be loaded is write protected
-	if (STM_FLASH_GetWriteProtectionStatus() == 0)   
-	{
-		FlashProtection = 1;
-	}
-	else
-	{
-		FlashProtection = 0;
-	}
+	if (STM_FLASH_GetWriteProtectionStatus() == 0)   FlashProtection = 1;
+	else FlashProtection = 0;
+
 	//Show Main Menu
 	my_printf("\r\n======================================================================");
 	my_printf("\r\n========================= Main Menu ==================================");
