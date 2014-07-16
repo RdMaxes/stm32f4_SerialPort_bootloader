@@ -11,6 +11,7 @@
 //Includes
 #include "stmflash.h"
 
+//Private Function
 static uint32_t GetSector(uint32_t Address);
 
 
