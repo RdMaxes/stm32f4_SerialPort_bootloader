@@ -113,7 +113,7 @@ uint16_t STM_FLASH_GetWriteProtectionStatus(void)
 //return: 
 //       1: Write Protection successfully disabled
 //       2: Error: Flash write unprotection failed
-uint32_t FLASH_If_DisableWriteProtection(void)
+uint32_t STM_FLASH_DisableWriteProtection(void)
 {
   __IO uint32_t UserStartSector = FLASH_Sector_1, UserWrpSectors = OB_WRP_Sector_1;
 
