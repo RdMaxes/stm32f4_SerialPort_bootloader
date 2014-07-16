@@ -5,6 +5,10 @@
 #include "stmflash.h"	
 #include "ymodem.h"
 
+
+uint8_t FileName[FILE_NAME_LENGTH];//array to store filename of download *.bin
+
+
 //Delay for a while
 //time: delay time
 static void delay(int32_t time)
