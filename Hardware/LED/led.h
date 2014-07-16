@@ -44,4 +44,5 @@
 
 //function declaration
 void LED_Init(void);
+void LED_loop(void);
 #endif
