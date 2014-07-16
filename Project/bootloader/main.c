@@ -21,7 +21,7 @@ int main(void)
 	uint8_t FlashProtection = 0;	
 
 	LED_Init();
-	Usart2_Init(9600);
+	Usart2_Init(230400);
 	Myprintf_Init(0x00,myputc);
 	
 	//Show Program Information
