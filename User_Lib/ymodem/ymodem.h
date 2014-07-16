@@ -2,6 +2,9 @@
 #ifndef __YMODEM_H_
 #define __YMODEM_H_
 
+//externed variables
+extern uint8_t FileName[FILE_NAME_LENGTH];
+
 //Exported macro
 #define PACKET_SEQNO_INDEX      (1)
 #define PACKET_SEQNO_COMP_INDEX (2)
