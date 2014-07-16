@@ -153,8 +153,16 @@ int32_t Ymodem_Receive (uint8_t *buf, uint32_t appaddr)
               return 0;
             /* End of transmission */
             case 0:
-              Send_Byte(ACK);
-              file_done = 1;
+	      if(file_done==0) //first EOT
+	      {	        
+  		Send_Byte(NACK); 		              
+                file_done = 1;
+	      }
+	      else if (file_done==1) //second EOT
+	      {
+	      	Send_Byte(ACK); 
+		Send_Byte(CRC16);
+              }
               break;
             /* Normal packet */
             default:
