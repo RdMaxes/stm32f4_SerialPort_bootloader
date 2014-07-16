@@ -1,3 +1,13 @@
+/*
+//@brief :STM flash programming operation
+//        (*)STM32F40x_41x IAP flash is excuted in Ymodem_Receive() function
+//        (*)Modified from STM AN395 example
+//@Author:RdMaxes
+//@Data  :2014/07/16
+//@Usage :
+//@Note  :
+*/
+
 //Includes
 #include "stmflash.h"
 
@@ -76,12 +86,10 @@ uint32_t STM_FLASH_Write(__IO uint32_t* FlashAddress, uint32_t* Data ,uint32_t D
   return (0);
 }
 
-/**
-  * @brief  Returns the write protection status of user flash area.
-  * @param  None
-  * @retval 0: No write protected sectors inside the user flash area
-  *         1: Some sectors inside the user flash area are write protected
-  */
+//Returns the write protection status of user flash area.
+//return: 
+//       0=No write protected sectors inside the user flash area
+//       1=Some sectors inside the user flash area are write protected
 uint16_t FLASH_If_GetWriteProtectionStatus(void)
 {
   uint32_t UserStartSector = FLASH_Sector_1;
