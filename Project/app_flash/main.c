@@ -12,6 +12,8 @@ static void delay(int32_t time)
 
 int main(void)
 {	
+	SCB->VTOR = FLASH_BASE|0x10000; //Interrupt Vector Table Relocation in internal FLASH
+	
 	LED_Init();
 	Usart2_Init(230400);
 	Myprintf_Init(0x00,myputc);
